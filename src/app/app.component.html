@@ -5,19 +5,19 @@
       <ul class="right hide-on-med-and-down">
         <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
         <li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina: 1}">Cursos</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['curso', idCurso.value]">Curso id</a></li>
+        <!--<li routerLinkActive="active"><a [routerLink]="['curso', idCurso.value]">Curso id</a></li>-->
+        <li routerLinkActive="active"><a routerLink="/alunos">Alunos</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
         <li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina: 1}">Cursos</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['curso', idCurso.value]">Curso id</a></li>
+        <!--<li routerLinkActive="active"><a [routerLink]="['curso', idCurso.value]">Curso id</a></li>-->
+        <li routerLinkActive="active"><a routerLink="/alunos">Alunos</a></li>
       </ul>
     </div>
   </nav>
 
 <div class="container">
-  <p>id: </p>
-  <input type="text" #idCurso>
   <!-- Renderiza as rotas dentro dessa tag -->
   <router-outlet></router-outlet>
 </div>

@@ -1,4 +1,5 @@
-import { CursosModule } from './cursos/cursos.module';
+// import { AlunosModule } from './alunos/alunos.module';
+// import { CursosModule } from './cursos/cursos.module';
 import { AppRoutingModule } from './app.routing.module';
 import { CursosService } from './cursos/cursos.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     MaterializeModule,
-    CursosModule,
+    // CursosModule,
+    // AlunosModule,
     AppRoutingModule
   ],
   providers: [CursosService],
