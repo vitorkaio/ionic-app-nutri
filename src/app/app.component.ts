@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { AuthService } from './login/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'app';
+    title = 'app';
+
+    private mostrarMenu: boolean = false;
+
+    constructor(private authService: AuthService){}
+
+    public ngOnInit(){
+        this.authService.menuEmitter.subscribe((mostrar) => {
+            console.log(mostrar);
+            this.mostrarMenu = mostrar;
+        })
+    }
+
 }
