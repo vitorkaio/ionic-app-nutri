@@ -1,6 +1,6 @@
 import { CursosService } from './../cursos.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
@@ -14,7 +14,11 @@ export class CursoDetalheComponent implements OnInit, OnDestroy {
     private subs: Subscription;
     public curso: any;
 
-    constructor(private route: ActivatedRoute, private cursosService: CursosService, private rota: Router) {
+    // Pega o elemento que tenha a variavel but no template.
+    @ViewChild('but')elemento: ElementRef;
+
+    constructor(private route: ActivatedRoute, private cursosService: CursosService, private rota: Router,
+    private ref: ElementRef, private rend: Renderer2) {
         // this.id = this.route.snapshot.params['id'];
     }
 
@@ -31,6 +35,18 @@ export class CursoDetalheComponent implements OnInit, OnDestroy {
 
     public ngOnDestroy() {
         this.subs.unsubscribe();
+    }
+
+    // Cria os elementos conforme o clique do botão.
+    public criaElemento(){
+        const div = this.rend.createElement('div');
+        const text = this.rend.createText('Teste!');
+      
+        this.rend.appendChild(div, text);
+        this.rend.setAttribute(div, 'class', 'foi');
+
+        this.rend.appendChild(this.elemento.nativeElement, div);
+        console.log(this.ref);
     }
 
 }

@@ -15,6 +15,8 @@ export class AlunoGuardsDeactivateService implements CanDeactivate<IFormCanDiact
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
+
+        console.log('AlunoGuardsDeactivateService: canDeactivate');
         
         /*if(component.mudouCampo)
             return false;*/

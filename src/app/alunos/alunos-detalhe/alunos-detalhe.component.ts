@@ -17,13 +17,17 @@ export class AlunosDetalheComponent implements OnInit {
     constructor(private route: ActivatedRoute, private alunosService: AlunosService, private rota: Router) { }
 
     public ngOnInit() {
-        this.subs = this.route.params.subscribe((params: any) => {
+        /*this.subs = this.route.params.subscribe((params: any) => {
             this.id = params['id'];
             this.aluno = this.alunosService.getAluno(this.id);
             console.log(this.aluno);
             if(this.aluno == null)
                 this.rota.navigate(['/naoEncontrado']);
             
+        });*/
+        this.subs = this.route.data.subscribe((info) => {
+            console.log(info);
+            this.aluno = info.aluno;
         });
     }
 

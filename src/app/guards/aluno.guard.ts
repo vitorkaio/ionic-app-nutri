@@ -10,7 +10,7 @@ export class AlunoGuardsService implements CanActivateChild{
 
     public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean{
         
-        console.log('Guard child Aluno');
+        console.log('AlunoGuardsService: canActivateChild');
         //console.log(route);
         //console.log(state);
 

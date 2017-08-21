@@ -10,7 +10,7 @@ export class CursoGuardsService implements CanActivateChild{
 
     public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean{
         
-        console.log('Guard para rota curso, ok');
+        console.log('CursoGuardsService: canActivateChild');
 
         return true;
 
