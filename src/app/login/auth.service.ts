@@ -26,4 +26,8 @@ export class AuthService {
 
     }
 
+    public isAuthenticate(){
+        return this.usuarioAuth;
+    }
+
 }

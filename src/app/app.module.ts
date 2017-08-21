@@ -1,3 +1,6 @@
+import { AlunoGuardsService } from './guards/aluno.guard';
+import { CursoGuardsService } from './guards/curso-guard';
+import { AuthGuardsService } from './guards/auth-guards.service';
 import { AuthService } from './login/auth.service';
 // import { AlunosModule } from './alunos/alunos.module';
 // import { CursosModule } from './cursos/cursos.module';
@@ -26,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardsService, CursoGuardsService, AlunoGuardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
