@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
         CommonModule,
         CursosRoutingModule
      ],
+     exports: [CursosComponent],
     declarations: [ 
         CursosComponent,
         CursoDetalheComponent,

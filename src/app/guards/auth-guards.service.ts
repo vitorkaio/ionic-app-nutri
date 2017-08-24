@@ -21,6 +21,12 @@ export class AuthGuardsService implements CanActivate, CanLoad {
     }
 
     private verificarAcesso() {
+        console.log('Verifica acesso');
+        //console.log(this.authService.getUsuarioLogado());
+        // Verifica se já existe um usuário logado, caso sim, não precisa autenticar novamente.
+        if(this.authService.getUsuarioLogado() != null)
+            return true;
+
         if (this.authService.isAuthenticate()) {
             return true;
         }

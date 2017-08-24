@@ -1,3 +1,4 @@
+import { AuthService } from './../login/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursosService } from './cursos.service';
@@ -14,9 +15,13 @@ export class CursosComponent implements OnInit {
     public pagina: number;
     private subs: Subscription;
 
-    constructor(private cursosService: CursosService, private route: ActivatedRoute, private rota: Router) { }
+    constructor(private cursosService: CursosService, private route: ActivatedRoute, private rota: Router,
+    private autService: AuthService) { }
 
     public ngOnInit() {
+        AuthService.menuEmitter.subscribe((mostrar) => {
+            console.log(mostrar);
+        })
         this.cursos = this.cursosService.getCursos();
         this.subs = this.route.queryParams.subscribe((query) => {
             this.pagina = query['pagina'];
