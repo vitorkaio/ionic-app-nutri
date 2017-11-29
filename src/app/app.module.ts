@@ -1,35 +1,49 @@
-import { AlunoGuardsService } from './guards/aluno.guard';
-import { CursoGuardsService } from './guards/curso-guard';
-import { AuthGuardsService } from './guards/auth-guards.service';
-import { AuthService } from './login/auth.service';
-// import { AlunosModule } from './alunos/alunos.module';
-// import { CursosModule } from './cursos/cursos.module';
-import { AppRoutingModule } from './app.routing.module';
+import { CestaAlimentoPage } from './../pages/cesta-alimento/cesta-alimento';
+import { InfoAlimentoPage } from './../pages/info-alimento/info-alimento';
+import { AddAlimentoPage } from './../pages/add-alimento/add-alimento';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
 
-import { AppComponent } from './app.component';
-import { MaterializeModule } from 'angular2-materialize';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
-
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { AcessAlimentosProvider } from '../providers/acess-alimentos/acess-alimentos';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
+    MyApp,
+    ContactPage,
+    HomePage,
+    TabsPage,
+    AddAlimentoPage,
+    InfoAlimentoPage,
+    CestaAlimentoPage
   ],
   imports: [
     BrowserModule,
-    MaterializeModule,
-    // CursosModule,
-    // AlunosModule,
-    FormsModule,
-    AppRoutingModule
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
-  providers: [AuthService, AuthGuardsService, CursoGuardsService, AlunoGuardsService],
-  bootstrap: [AppComponent]
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    ContactPage,
+    HomePage,
+    TabsPage,
+    AddAlimentoPage,
+    InfoAlimentoPage,
+    CestaAlimentoPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AcessAlimentosProvider,
+  ]
 })
-export class AppModule { }
+export class AppModule {}
